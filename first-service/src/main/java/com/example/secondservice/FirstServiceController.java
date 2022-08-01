@@ -7,17 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/second-service")
+@RequestMapping("/first-service")
 @Slf4j
-public class SecondServiceController {
+public class FirstServiceController {
     @GetMapping("/welcome")
     public String welcome(){
         return "Welcome to the Second Service";
     }
 
     @GetMapping("/message")
-    public String message(@RequestHeader("second-reqeust") String header){
+    public String message(@RequestHeader("first-reqeust") String header){
         log.info(header);
         return "Hello World in Second Service";
+    }
+
+    @GetMapping("/check")
+    public String check(){
+        return "Hi, there. This is a message from First Service";
     }
 }
