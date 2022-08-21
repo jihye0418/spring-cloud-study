@@ -39,6 +39,10 @@ spring:
                 baseMessage: Hi, there.
                 preLogger: true
                 postLogger: true
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-servcie/**
     default-filters:
       - name: GlobalFilter
         args:
